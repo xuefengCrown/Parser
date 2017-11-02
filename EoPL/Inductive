@@ -1,0 +1,35 @@
+# 归纳法
+
+We can even use BNF to specify concisely the syntactic category of data in Scheme. In Scheme,
+numbers, symbols, booleans, and strings all have literal representations, which we associate with
+the syntactic categories <number>, <symbol>, <boolean>, and <string>, respectively. We can then
+use BNF to specify the representations for lists, improper lists (which end with dotted pairs), and
+vectors:
+
+<list>		::= ({<datum>}*)
+<dotted-datum>		::= ({<datum>}+ . <datum>)
+<vector>		::= #({<datum>}*)
+<datum>		::= <number> | <symbol> | <boolean> | <string>
+			    ::= <list> | <dotted-datum> | <vector>
+          
+These four syntactic categories are all defined in terms of each other. This is legitimate because
+each of these compound data types contains components that may be numbers, symbols, booleans,
+strings, or other lists, improper lists or vectors.
+
+To illustrate the use of this grammar, consider the following syntactic derivation that proves (#t
+(foo . ()) 3) is a list.
+<list>⇒ (<datum> <datum> <datum>)⇒ (<boolean> <datum> <datum>)⇒ (#t <datum>
+<datum>)⇒ (#t <dotted-datum> <datum>)⇒ (#t ({<datum>} + . <datum>) <datum>)⇒ (#t
+(<symbol> . <datum>) <datum>)⇒ (#t (foo . <datum>) <datum>)⇒ (#t (foo . <list>)
+<datum>)⇒ (#t (foo . ()) <datum>)⇒ (#t (foo . ()) <number>)⇒ (#t
+(foo . ()) 3)
+
+
+<bin-search-tree> ::= ()|(<key><bin-search-tree><bin-search-tree>)
+
+
+
+
+
+      
+
