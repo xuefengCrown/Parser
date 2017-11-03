@@ -1,0 +1,18 @@
+# 
+Another shortcut is the Kleene star, expressed by the notation {. . .}*. 
+
+Let us consider the BNF definitions of some other useful sets. Many symbol manipulation
+procedures are designed to operate on lists that contain only symbols and other similarly restricted
+lists. We formalize this notion with these rules:
+
+<s-list>			::= ({<symbol-expression>}*)
+<symbol-expression> ::= <symbol> | <s-list>
+
+
+<s-list>			::= ()
+					::= (<symbol-expression> . <s-list>)
+<symbol-expression> ::= <symbol> | <s-list>
+
+
+Exercise 1.13 [ ] Rewrite the grammar for <s-list> to use Kleene star, and rewrite  notate-depth-
+in-s-list using  map.
