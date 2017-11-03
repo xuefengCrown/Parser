@@ -1,0 +1,16 @@
+(define notate-depth (lambda (slist) (notate-depth-in-s-list slist 0)))
+(define notate-depth-in-s-list (lambda (slist d)
+                                 (if (null? slist) '()
+                                     (cons
+                                       (notate-depth-in-symbol-expression (car slist) d)
+                                       (notate-depth-in-s-list (cdr slist) d))
+                                     )
+                                 )
+  )
+
+(define notate-depth-in-symbol-expression (lambda (se d) 
+                                           (if (symbol? se) (list se d) 
+                                               (notate-depth-in-s-list se (+ d 1)))))
+                                            
+(notate-depth '(a (b () c) ((d)) e))
+;; => ((a 0) ((b 1) () (c 1)) (((d 2))) (e 0))
