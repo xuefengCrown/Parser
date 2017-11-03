@@ -1,1 +1,4 @@
 # essentials of programming language
+ (1) the structure of a program reflects the structure of its data and 
+ (2) recursive calls are employed at points where recursion is used in
+the set's inductive definition.
