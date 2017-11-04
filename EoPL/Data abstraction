@@ -1,0 +1,18 @@
+
+Data abstraction divides a data type into two pieces: an interface and an implementation. 
+
+The interface tells us what the data of the type represents, what the operations on the data are, 
+and what properties these operations may be relied on to have. The implementation provides a specific
+representation of the data and code for the operations that makes use of the specific data
+representation.
+
+This is a familiar idea: most of the time, we don't care how integers are actually represented inside
+the machine. Our only concern is that we can perform the arithmetic operations reliably. Similarly,
+a file descriptor in an operating system is a complex entity, but when we write programs we care
+only that we can invoke procedures that perform the open, close, read, and other typical operations
+on these files. The only time we need to worry about the representation of file descriptors is when
+we are modifying the implementation of a file system. When the client code does not rely on the
+representation of the values in the data type, manipulating them only through the procedures in the
+interface, we say that the code is representation-independent.
+
+
